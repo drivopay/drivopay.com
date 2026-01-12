@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useRef } from 'react';
+import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import {
   ArrowRight, Play, Check, ChevronRight,
@@ -285,8 +286,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-24">
             <div className="flex items-center">
-              <div className="w-52 text-gray-900">
-                <DrivoPayLogo />
+              <div className="relative w-52 h-16">
+                <Image
+                  src="/drivopay.png"
+                  alt="DrivoPay - Instant Payments for Drivers"
+                  fill
+                  className="object-contain object-left"
+                  priority
+                />
               </div>
             </div>
 
