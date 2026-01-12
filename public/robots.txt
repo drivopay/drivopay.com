@@ -1,0 +1,66 @@
+# robots.txt for DrivoPay
+# https://drivopay.com/robots.txt
+
+# Allow all search engines to crawl the entire site
+User-agent: *
+Allow: /
+
+# Disallow crawling of admin, API, or internal paths (if they exist in the future)
+# Disallow: /api/
+# Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://drivopay.com/sitemap.xml
+
+# Crawl-delay (optional, only if you want to limit crawl rate)
+# Crawl-delay: 10
+
+# Specific rules for different search engines
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+
+# Yandex
+User-agent: Yandex
+Allow: /
+
+# Block AI scrapers and content scrapers (optional - uncomment if desired)
+# User-agent: GPTBot
+# Disallow: /
+#
+# User-agent: ChatGPT-User
+# Disallow: /
+#
+# User-agent: CCBot
+# Disallow: /
+#
+# User-agent: anthropic-ai
+# Disallow: /
+#
+# User-agent: Claude-Web
+# Disallow: /
+
+# Allow social media crawlers for link previews
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
