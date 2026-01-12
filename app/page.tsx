@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-// Custom Modern Logo Component - Redesigned for instant payments concept
+// Custom Modern Logo Component - Emerald & Teal theme
 const DrivoPayLogo = ({ className = "w-full h-full" }: { className?: string }) => (
   <svg viewBox="0 0 200 48" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
     {/* Main Logo Icon - Combines "D" with forward motion and instant payment bolt */}
@@ -40,8 +40,8 @@ const DrivoPayLogo = ({ className = "w-full h-full" }: { className?: string }) =
       </g>
 
       {/* Small accent dots for dynamism */}
-      <circle cx="38" cy="12" r="2" fill="#6366F1" opacity="0.7"/>
-      <circle cx="42" cy="14" r="1.5" fill="#8B5CF6" opacity="0.6"/>
+      <circle cx="38" cy="12" r="2" fill="#10B981" opacity="0.7"/>
+      <circle cx="42" cy="14" r="1.5" fill="#14B8A6" opacity="0.6"/>
     </g>
 
     {/* Brand Text */}
@@ -85,17 +85,17 @@ const DrivoPayLogo = ({ className = "w-full h-full" }: { className?: string }) =
     </g>
 
     <defs>
-      {/* Main gradient for the icon */}
+      {/* Main gradient for the icon - Emerald to Teal */}
       <linearGradient id="mainGradient" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="#6366F1"/>
-        <stop offset="50%" stopColor="#8B5CF6"/>
-        <stop offset="100%" stopColor="#EC4899"/>
+        <stop offset="0%" stopColor="#10B981"/>
+        <stop offset="50%" stopColor="#14B8A6"/>
+        <stop offset="100%" stopColor="#06B6D4"/>
       </linearGradient>
 
-      {/* Gradient for "Pay" text */}
+      {/* Gradient for "Pay" text - Emerald to Teal */}
       <linearGradient id="textGradient" x1="124" y1="12" x2="170" y2="32" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="#6366F1"/>
-        <stop offset="100%" stopColor="#8B5CF6"/>
+        <stop offset="0%" stopColor="#10B981"/>
+        <stop offset="100%" stopColor="#14B8A6"/>
       </linearGradient>
     </defs>
   </svg>
@@ -177,7 +177,7 @@ const BentoCard = ({
 
 // Video/Demo Section Component
 const VideoDemo = () => (
-  <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-indigo-50 to-purple-50 p-2">
+  <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-emerald-50 to-teal-50 p-2">
     <div className="relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800">
       {/* Mock video interface */}
       <div className="absolute inset-0 flex items-center justify-center">
@@ -186,13 +186,13 @@ const VideoDemo = () => (
           whileTap={{ scale: 0.95 }}
           className="w-20 h-20 rounded-full bg-white shadow-2xl flex items-center justify-center group"
         >
-          <Play className="w-8 h-8 text-indigo-600 ml-1 group-hover:text-indigo-700 transition-colors" />
+          <Play className="w-8 h-8 text-emerald-600 ml-1 group-hover:text-emerald-700 transition-colors" />
         </motion.button>
       </div>
 
       {/* Mock phone UI */}
       <div className="absolute left-8 bottom-8 w-48 bg-white rounded-3xl p-3 shadow-2xl">
-        <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl p-4 text-white">
+        <div className="bg-gradient-to-br from-emerald-600 to-teal-600 rounded-2xl p-4 text-white">
           <div className="text-xs opacity-80 mb-1">Today&apos;s Earnings</div>
           <div className="text-2xl font-bold">₹2,450</div>
           <div className="flex items-center gap-1 text-xs mt-2">
@@ -230,7 +230,7 @@ const ProcessStep = ({ number, title, description, delay }: {
   >
     <div className="flex items-start gap-6">
       <div className="flex-shrink-0">
-        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center shadow-lg">
+        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center shadow-lg">
           <span className="text-2xl font-bold text-white">{number}</span>
         </div>
       </div>
@@ -265,7 +265,7 @@ const TestimonialCard = ({ name, role, avatar, content, rating, delay }: {
     </div>
     <p className="text-gray-700 leading-relaxed mb-6 text-lg">&quot;{content}&quot;</p>
     <div className="flex items-center gap-4">
-      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold text-xl shadow-md">
+      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white font-bold text-xl shadow-md">
         {avatar}
       </div>
       <div>
@@ -278,7 +278,7 @@ const TestimonialCard = ({ name, role, avatar, content, rating, delay }: {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-teal-50">
 
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200">
@@ -301,7 +301,7 @@ export default function Home() {
               <Button variant="ghost" className="text-gray-700 hover:text-gray-900">
                 Sign in
               </Button>
-              <Button className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white border-0 px-6 shadow-lg">
+              <Button className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white border-0 px-6 shadow-lg">
                 Get started
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
@@ -313,9 +313,9 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative pt-20 pb-32 overflow-hidden">
         {/* Decorative elements */}
-        <div className="absolute top-40 left-10 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
-        <div className="absolute top-60 right-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
-        <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
+        <div className="absolute top-40 left-10 w-72 h-72 bg-emerald-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
+        <div className="absolute top-60 right-10 w-72 h-72 bg-teal-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+        <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -325,14 +325,14 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-flex items-center gap-2 bg-white rounded-full px-5 py-2 shadow-lg mb-8 border border-gray-200">
-                <Sparkles className="w-4 h-4 text-indigo-600" />
+                <Sparkles className="w-4 h-4 text-emerald-600" />
                 <span className="text-sm font-semibold text-gray-700">Trusted by 50,000+ drivers</span>
               </div>
 
               <h1 className="text-6xl md:text-7xl font-bold text-gray-900 leading-tight mb-6">
                 Get paid
                 <br />
-                <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-indigo-600 via-teal-600 to-cyan-500 bg-clip-text text-transparent">
                   instantly
                 </span>
               </h1>
@@ -343,7 +343,7 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <Button size="lg" className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white text-lg px-8 py-7 rounded-2xl shadow-xl border-0">
+                <Button size="lg" className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-lg px-8 py-7 rounded-2xl shadow-xl border-0">
                   Start earning now
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
@@ -388,7 +388,7 @@ export default function Home() {
             >
               {/* Mock phone with 3D perspective */}
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-[3rem] blur-3xl opacity-30 transform scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-[3rem] blur-3xl opacity-30 transform scale-105" />
 
                 <div className="relative bg-white rounded-[3rem] p-4 shadow-2xl border-8 border-gray-900 transform hover:rotate-1 transition-transform duration-300">
                   <div className="rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-gray-50 to-white">
@@ -414,7 +414,7 @@ export default function Home() {
                       </div>
 
                       {/* Balance card */}
-                      <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-3xl p-6 text-white shadow-xl">
+                      <div className="bg-gradient-to-br from-emerald-600 to-teal-600 rounded-3xl p-6 text-white shadow-xl">
                         <div className="text-sm opacity-90 mb-2">Today&apos;s Earnings</div>
                         <div className="text-4xl font-bold mb-4">₹2,450</div>
                         <div className="flex items-center justify-between">
@@ -422,7 +422,7 @@ export default function Home() {
                             <TrendingUp className="w-4 h-4" />
                             <span className="text-sm">+18%</span>
                           </div>
-                          <Button size="sm" className="bg-white text-indigo-600 hover:bg-gray-100 rounded-xl">
+                          <Button size="sm" className="bg-white text-emerald-600 hover:bg-gray-100 rounded-xl">
                             Withdraw
                           </Button>
                         </div>
@@ -457,15 +457,15 @@ export default function Home() {
 
                         <div className="flex items-center justify-between p-3 bg-white rounded-xl border border-gray-200">
                           <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                              <Zap className="w-5 h-5 text-indigo-600" />
+                            <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
+                              <Zap className="w-5 h-5 text-emerald-600" />
                             </div>
                             <div>
                               <div className="font-semibold text-sm">Fuel discount</div>
                               <div className="text-xs text-gray-500">Shell Station</div>
                             </div>
                           </div>
-                          <div className="font-bold text-indigo-600">-₹50</div>
+                          <div className="font-bold text-emerald-600">-₹50</div>
                         </div>
                       </div>
                     </div>
@@ -504,7 +504,7 @@ export default function Home() {
             <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
               Everything you need to
               <br />
-              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
                 earn and grow
               </span>
             </h2>
@@ -518,7 +518,7 @@ export default function Home() {
               icon={Zap}
               title="Instant payouts"
               description="Money hits your wallet in under 3 seconds. No more waiting for weekly settlements."
-              gradient="bg-gradient-to-br from-indigo-500 to-purple-500"
+              gradient="bg-gradient-to-br from-emerald-500 to-teal-500"
               delay={0}
             />
             <BentoCard
@@ -539,7 +539,7 @@ export default function Home() {
               icon={TrendingUp}
               title="Earnings insights"
               description="AI-powered insights show your best earning hours and optimal routes."
-              gradient="bg-gradient-to-br from-purple-400 to-pink-500"
+              gradient="bg-gradient-to-br from-emerald-400 to-teal-500"
               size="large"
               delay={0.3}
             />
@@ -547,7 +547,7 @@ export default function Home() {
               icon={CreditCard}
               title="Instant loans"
               description="Get micro-loans approved in minutes based on your earning history."
-              gradient="bg-gradient-to-br from-purple-400 to-pink-500"
+              gradient="bg-gradient-to-br from-emerald-400 to-teal-500"
               delay={0.4}
             />
             <BentoCard
@@ -569,7 +569,7 @@ export default function Home() {
       </section>
 
       {/* Video Demo Section */}
-      <section className="py-32 bg-gradient-to-b from-white to-indigo-50">
+      <section className="py-32 bg-gradient-to-b from-white to-emerald-50">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -607,7 +607,7 @@ export default function Home() {
           >
             <h2 className="text-5xl font-bold text-gray-900 mb-6">
               Start earning in
-              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"> 3 steps</span>
+              <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent"> 3 steps</span>
             </h2>
             <p className="text-xl text-gray-600">
               Get set up in under 2 minutes. It&apos;s that simple.
@@ -638,7 +638,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-32 bg-gradient-to-br from-indigo-600 to-purple-600 text-white relative overflow-hidden">
+      <section className="py-32 bg-gradient-to-br from-emerald-600 to-teal-600 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -652,7 +652,7 @@ export default function Home() {
               <div className="text-6xl font-bold mb-3">
                 <AnimatedCounter end={50} suffix="k+" />
               </div>
-              <div className="text-indigo-100 text-lg">Active drivers</div>
+              <div className="text-emerald-100 text-lg">Active drivers</div>
             </motion.div>
 
             <motion.div
@@ -664,7 +664,7 @@ export default function Home() {
               <div className="text-6xl font-bold mb-3">
                 <AnimatedCounter end={10} suffix="M+" prefix="₹" />
               </div>
-              <div className="text-indigo-100 text-lg">Processed daily</div>
+              <div className="text-emerald-100 text-lg">Processed daily</div>
             </motion.div>
 
             <motion.div
@@ -676,7 +676,7 @@ export default function Home() {
               <div className="text-6xl font-bold mb-3">
                 <AnimatedCounter end={3} suffix="s" />
               </div>
-              <div className="text-indigo-100 text-lg">Average payout time</div>
+              <div className="text-emerald-100 text-lg">Average payout time</div>
             </motion.div>
 
             <motion.div
@@ -688,14 +688,14 @@ export default function Home() {
               <div className="text-6xl font-bold mb-3">
                 <AnimatedCounter end={0} suffix="%" />
               </div>
-              <div className="text-indigo-100 text-lg">Platform fees</div>
+              <div className="text-emerald-100 text-lg">Platform fees</div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section id="testimonials" className="py-32 bg-gradient-to-b from-white to-indigo-50">
+      <section id="testimonials" className="py-32 bg-gradient-to-b from-white to-emerald-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -706,7 +706,7 @@ export default function Home() {
             <h2 className="text-5xl font-bold text-gray-900 mb-6">
               Loved by drivers
               <br />
-              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
                 across India
               </span>
             </h2>
@@ -757,7 +757,7 @@ export default function Home() {
             <h2 className="text-5xl md:text-6xl font-bold mb-6">
               Ready to take control of
               <br />
-              <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
                 your earnings?
               </span>
             </h2>
