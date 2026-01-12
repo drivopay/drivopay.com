@@ -47,9 +47,6 @@ jobs:
       - name: Build with Next.js
         run: npm run build
 
-      - name: Add CNAME file
-        run: echo "drivopay.com" > ./out/CNAME
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
