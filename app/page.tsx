@@ -284,9 +284,9 @@ export default function Home() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white backdrop-blur-xl border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between h-24">
+          <div className="flex items-center justify-between h-28">
             <div className="flex items-center">
-              <div className="relative w-64 h-20 py-2">
+              <div className="relative w-80 h-24 py-2">
                 <Image
                   src="/drivopay-removebg-preview.png"
                   alt="DrivoPay - Instant Payments for Drivers"
