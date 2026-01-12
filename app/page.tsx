@@ -284,14 +284,14 @@ export default function Home() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white backdrop-blur-xl border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between h-28">
+          <div className="flex items-center justify-between h-20">
             <div className="flex items-center">
-              <div className="relative w-80 h-24 py-2">
+              <div className="relative w-56 h-16 py-2">
                 <Image
-                  src="/drivopay-removebg-preview.png"
+                  src="/output-onlinepngtools.png"
                   alt="DrivoPay - Instant Payments for Drivers"
                   fill
-                  className="object-contain object-left drop-shadow-sm"
+                  className="object-contain object-left"
                   priority
                 />
               </div>
