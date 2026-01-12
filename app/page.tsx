@@ -7,7 +7,8 @@ import {
   ArrowRight, Play, Check, ChevronRight,
   Smartphone, Shield, TrendingUp, Zap,
   DollarSign, CreditCard, Users,
-  Sparkles, Star, Globe, Lock, Wallet
+  Sparkles, Star, Globe, Lock, Wallet,
+  Menu, X
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -278,15 +279,17 @@ const TestimonialCard = ({ name, role, avatar, content, rating, delay }: {
 );
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-teal-50">
 
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white backdrop-blur-xl border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between h-28">
+          <div className="flex items-center justify-between h-20 md:h-28">
             <div className="flex items-center">
-              <div className="relative w-96 h-24 py-2">
+              <div className="relative w-48 h-16 md:w-96 md:h-24 py-2">
                 <Image
                   src="/output-onlinepngtools.png"
                   alt="DrivoPay - Instant Payments for Drivers"
@@ -304,7 +307,7 @@ export default function Home() {
               <a href="#testimonials" className="text-gray-700 hover:text-gray-900 font-medium transition-colors">Reviews</a>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-3">
               <Button variant="ghost" className="text-gray-700 hover:text-gray-900">
                 Sign in
               </Button>
@@ -313,7 +316,70 @@ export default function Home() {
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
+
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6 text-gray-700" />
+              ) : (
+                <Menu className="w-6 h-6 text-gray-700" />
+              )}
+            </button>
           </div>
+
+          {/* Mobile menu */}
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden border-t border-gray-200 py-4"
+            >
+              <div className="flex flex-col space-y-4">
+                <a
+                  href="#features"
+                  className="text-gray-700 hover:text-gray-900 font-medium transition-colors py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Features
+                </a>
+                <a
+                  href="#how-it-works"
+                  className="text-gray-700 hover:text-gray-900 font-medium transition-colors py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  How it works
+                </a>
+                <a
+                  href="#pricing"
+                  className="text-gray-700 hover:text-gray-900 font-medium transition-colors py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Pricing
+                </a>
+                <a
+                  href="#testimonials"
+                  className="text-gray-700 hover:text-gray-900 font-medium transition-colors py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Reviews
+                </a>
+                <div className="pt-4 space-y-3 border-t border-gray-200">
+                  <Button variant="outline" className="w-full">
+                    Sign in
+                  </Button>
+                  <Button className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white border-0 shadow-lg">
+                    Get started
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          )}
         </div>
       </nav>
 
