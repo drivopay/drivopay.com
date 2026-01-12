@@ -5,6 +5,7 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
+  // GitHub Pages configuration
 }
 
 module.exports = nextConfig
