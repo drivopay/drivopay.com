@@ -288,7 +288,7 @@ export default function Home() {
             <div className="flex items-center">
               <div className="relative w-48 h-14 py-2">
                 <Image
-                  src="/drivopay.png"
+                  src="/drivopay-removebg-preview.png"
                   alt="DrivoPay - Instant Payments for Drivers"
                   fill
                   className="object-contain object-left drop-shadow-sm"
