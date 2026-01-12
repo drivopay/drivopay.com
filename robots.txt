@@ -1,0 +1,31 @@
+User-Agent: *
+Allow: /
+
+User-Agent: Googlebot
+Allow: /
+
+User-Agent: Bingbot
+Allow: /
+
+User-Agent: Baiduspider
+Allow: /
+
+User-Agent: Yandex
+Allow: /
+
+User-Agent: facebookexternalhit
+Allow: /
+
+User-Agent: Twitterbot
+Allow: /
+
+User-Agent: LinkedInBot
+Allow: /
+
+User-Agent: WhatsApp
+Allow: /
+
+User-Agent: TelegramBot
+Allow: /
+
+Sitemap: https://drivopay.com/sitemap.xml
