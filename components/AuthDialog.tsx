@@ -110,7 +110,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
 
       // Redirect to dashboard after successful login
       router.push('/dashboard');
-    } catch (err) {
+    } catch {
       setError('An error occurred. Please try again.');
     } finally {
       setIsLoading(false);
@@ -267,7 +267,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
         )}
 
         {/* Mobile OTP Login Form */}
-        {loginMethod === 'mobile' && mode === 'signin' && (
+        {loginMethod === 'mobile' && (
           <div className="space-y-4 mt-4">
             {mode === 'signup' && (
               <div className="space-y-2">

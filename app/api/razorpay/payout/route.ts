@@ -34,14 +34,16 @@ export async function POST(request: NextRequest) {
     }
 
     // Step 1: Create contact
-    const contact = await razorpay.contacts.create({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const contact = await (razorpay as any).contacts.create({
       name,
       type: 'vendor',
       reference_id: `contact_${Date.now()}`,
     });
 
     // Step 2: Create fund account
-    const fundAccount = await razorpay.fundAccounts.create({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const fundAccount = await (razorpay as any).fundAccounts.create({
       contact_id: contact.id,
       account_type: 'bank_account',
       bank_account: {
@@ -67,7 +69,8 @@ export async function POST(request: NextRequest) {
       },
     };
 
-    const payout = await razorpay.payouts.create(payoutOptions);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const payout = await (razorpay as any).payouts.create(payoutOptions);
 
     return NextResponse.json({
       success: true,
@@ -76,12 +79,13 @@ export async function POST(request: NextRequest) {
       utr: payout.utr, // Unique Transaction Reference
       fundAccountId: fundAccount.id,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Payout creation error:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Failed to create payout';
     return NextResponse.json(
       {
         success: false,
-        error: error.error?.description || error.message || 'Failed to create payout',
+        error: errorMessage,
       },
       { status: 500 }
     );

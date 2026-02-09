@@ -5,12 +5,11 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import {
   ChevronLeft, PiggyBank, TrendingUp, Shield, Zap, Target,
-  DollarSign, AlertCircle, Clock, Plus, Gift, Award
+  DollarSign, Clock, Plus, Gift, Award
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { UserMenu } from '@/components/UserMenu';
-import { Input } from '@/components/ui/input';
 import Image from 'next/image';
 
 export default function SavingsPage() {
@@ -319,7 +318,7 @@ export default function SavingsPage() {
                 </div>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between p-3 bg-white rounded-lg">
-                    <span className="text-sm text-gray-600">Today's Rate</span>
+                    <span className="text-sm text-gray-600">Today&apos;s Rate</span>
                     <span className="font-bold text-gray-900">₹6,000/g</span>
                   </div>
                   <div className="flex items-center justify-between p-3 bg-white rounded-lg">

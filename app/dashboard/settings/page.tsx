@@ -4,9 +4,9 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import {
-  User, Bell, Lock, CreditCard, Globe, HelpCircle,
+  User, Bell, Lock, CreditCard,
   ChevronLeft, ChevronRight, Shield, Smartphone, Mail, Phone,
-  FileText, Upload, CheckCircle, Clock, AlertCircle, Camera
+  FileText, Upload, CheckCircle, Clock, Camera
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
@@ -111,7 +111,7 @@ export default function SettingsPage() {
               {menuItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => setActiveSection(item.id as any)}
+                  onClick={() => setActiveSection(item.id as 'profile' | 'notifications' | 'security' | 'payment' | 'kyc')}
                   className={`w-full flex items-center gap-3 p-3 rounded-xl transition-all mb-2 ${
                     activeSection === item.id
                       ? 'bg-emerald-50 text-emerald-600'

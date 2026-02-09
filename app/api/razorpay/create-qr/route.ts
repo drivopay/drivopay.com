@@ -33,21 +33,27 @@ export async function POST(request: NextRequest) {
       },
     };
 
-    const qrCode = await razorpay.qrCode.create(qrOptions);
+    const qrCode = await razorpay.qrCode.create(qrOptions) as {
+      id: string;
+      image_url: string;
+      short_url?: string;
+      qr_string?: string;
+    };
 
     return NextResponse.json({
       success: true,
       qrCodeId: qrCode.id,
       imageUrl: qrCode.image_url,
-      shortUrl: qrCode.short_url,
-      qrString: qrCode.qr_string, // UPI payment string
+      shortUrl: qrCode.short_url || '',
+      qrString: qrCode.qr_string || '', // UPI payment string
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('QR Code creation error:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Failed to create QR code';
     return NextResponse.json(
       {
         success: false,
-        error: error.error?.description || error.message || 'Failed to create QR code',
+        error: errorMessage,
       },
       { status: 500 }
     );

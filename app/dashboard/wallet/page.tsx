@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import {
   ArrowUpRight, ArrowDownLeft, Download, Plus,
-  CreditCard, Building, ChevronLeft, Search, Filter,
+  CreditCard, Building, ChevronLeft, Search,
   Clock, Check, AlertCircle
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
@@ -26,7 +26,6 @@ interface Transaction {
 }
 
 const generateAllTransactions = (): Transaction[] => {
-  const categories = ['Ride', 'Delivery', 'Tip', 'Withdrawal', 'Fuel', 'Bonus'];
   const descriptions = [
     { type: 'credit' as const, desc: 'Ride payment from customer', cat: 'Ride' },
     { type: 'credit' as const, desc: 'Delivery payment', cat: 'Delivery' },
@@ -38,13 +37,17 @@ const generateAllTransactions = (): Transaction[] => {
 
   return Array.from({ length: 25 }, (_, i) => {
     const item = descriptions[Math.floor(Math.random() * descriptions.length)];
+    const statusRandom = Math.random();
+    const status: 'completed' | 'pending' | 'failed' =
+      statusRandom > 0.05 ? 'completed' : (statusRandom > 0.5 ? 'pending' : 'failed');
+
     return {
       id: `txn-${i}`,
       type: item.type,
       amount: Math.floor(Math.random() * 500) + 50,
       description: item.desc,
       timestamp: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000),
-      status: Math.random() > 0.05 ? 'completed' : (Math.random() > 0.5 ? 'pending' : 'failed'),
+      status,
       category: item.cat
     };
   }).sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
