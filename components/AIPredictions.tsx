@@ -3,8 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
-  Sparkles, TrendingUp, CloudRain, MapPin, DollarSign,
-  Calendar, Clock, Zap, AlertCircle, ThermometerSun, Wind
+  Sparkles, TrendingUp, CloudRain, MapPin,
+  Calendar, Clock, Zap, AlertCircle, ThermometerSun
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
@@ -92,7 +92,7 @@ export function AIPredictions() {
         >
           <div className="flex items-center gap-2 mb-4">
             <Calendar className="w-5 h-5 text-blue-600" />
-            <span className="text-sm font-semibold text-gray-600">Tomorrow's Prediction</span>
+            <span className="text-sm font-semibold text-gray-600">Tomorrow&apos;s Prediction</span>
           </div>
           <div className="space-y-4">
             <div>
@@ -120,7 +120,7 @@ export function AIPredictions() {
       >
         <div className="flex items-center gap-2 mb-4">
           <Clock className="w-5 h-5 text-orange-600" />
-          <span className="font-bold text-gray-900">Today's Peak Hours</span>
+          <span className="font-bold text-gray-900">Today&apos;s Peak Hours</span>
         </div>
         <div className="grid md:grid-cols-2 gap-4">
           {predictions.peakHours.map((slot, index) => (
@@ -237,7 +237,7 @@ export function AIPredictions() {
           <div>
             <h4 className="font-bold text-gray-900 mb-2">AI Recommendation for Today</h4>
             <p className="text-gray-700 mb-3">
-              Start your shift at 7:30 PM today. There's a cricket match at Arun Jaitley Stadium ending around 8 PM,
+              Start your shift at 7:30 PM today. There&apos;s a cricket match at Arun Jaitley Stadium ending around 8 PM,
               which historically increases ride demand by 60% in nearby areas.
             </p>
             <p className="text-sm text-amber-800 font-medium">

@@ -37,12 +37,13 @@ export async function POST(request: NextRequest) {
       currency: order.currency,
       receipt: order.receipt,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Order creation error:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Failed to create order';
     return NextResponse.json(
       {
         success: false,
-        error: error.error?.description || error.message || 'Failed to create order',
+        error: errorMessage,
       },
       { status: 500 }
     );

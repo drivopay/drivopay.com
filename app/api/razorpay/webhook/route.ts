@@ -6,7 +6,6 @@ export async function POST(request: NextRequest) {
     // Get raw body for signature verification
     const body = await request.text();
     const signature = request.headers.get('x-razorpay-signature');
-    const eventId = request.headers.get('x-razorpay-event-id');
 
     if (!signature) {
       return NextResponse.json(
@@ -51,9 +50,8 @@ export async function POST(request: NextRequest) {
       case 'qr_code.credited':
         console.log('QR code payment received:', payload.payload.qr_code.entity);
         // TODO: Update database, credit driver wallet, send notification
-        const qrPayment = payload.payload.qr_code.entity;
-        // qrPayment.payment_id - use this to credit wallet
-        // qrPayment.amount - amount in paise
+        // payload.payload.qr_code.entity.payment_id - use this to credit wallet
+        // payload.payload.qr_code.entity.amount - amount in paise
         break;
 
       case 'qr_code.closed':
@@ -80,7 +78,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({ received: true });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Webhook error:', error);
     return NextResponse.json(
       { error: 'Webhook processing failed' },

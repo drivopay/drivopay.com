@@ -153,7 +153,7 @@ export function WithdrawDialog({ open, onOpenChange, availableBalance }: Withdra
               ₹{parseFloat(amount).toLocaleString()} has been sent to your bank account
             </p>
             <p className="text-sm text-gray-500">
-              You'll receive the money within 24 hours
+              Money will be credited to your account instantly
             </p>
           </div>
         )}

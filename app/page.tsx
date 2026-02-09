@@ -5,11 +5,11 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { motion, useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
-  ArrowRight, Play, Check, ChevronRight, ChevronDown,
-  Smartphone, Shield, TrendingUp, Zap,
+  ArrowRight, Play, ChevronRight, ChevronDown,
+  Smartphone, TrendingUp, Zap,
   DollarSign, CreditCard, Users,
-  Sparkles, Star, Globe, Lock, Wallet,
-  Menu, X, Gift, Bell, BarChart3, Clock, Fuel, Receipt, LayoutDashboard
+  Sparkles, Star, Globe, Wallet,
+  Menu, X, Fuel, LayoutDashboard
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AuthDialog } from '@/components/AuthDialog';

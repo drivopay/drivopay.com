@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Bell, DollarSign, Gift, TrendingUp, AlertCircle, Check } from 'lucide-react';
+import { Bell, DollarSign, Gift, TrendingUp, AlertCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface Notification {
