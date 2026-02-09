@@ -1,445 +1,498 @@
-# DrivoPay - Instant Payments Platform for Drivers
+# 🚗 DrivoPay - Complete Payment Platform for Gig Economy Workers
 
 <div align="center">
 
 ![DrivoPay Logo](public/output-onlinepngtools.png)
 
-**Get paid instantly. No platform fees. No waiting periods.**
+**The only payment system designed specifically for drivers, delivery partners, and gig economy workers**
 
-[🌐 Visit Website](https://drivopay.com) • [📖 Documentation](#documentation) • [🚀 Deployment](DEPLOYMENT.md)
+[![Next.js](https://img.shields.io/badge/Next.js-15.1.5-black)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.0.0-blue)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38bdf8)](https://tailwindcss.com/)
+[![Razorpay](https://img.shields.io/badge/Razorpay-Integrated-528ff0)](https://razorpay.com/)
+
+[Live Demo](#) | [Documentation](PROJECT_DOCUMENTATION.md) | [Setup Guide](RAZORPAY_SETUP.md)
 
 </div>
 
 ---
 
-## 📱 About DrivoPay
+## ✨ What's New in DrivoPay
 
-**DrivoPay** is a revolutionary payments platform built specifically for gig economy drivers. Whether you drive for Uber, Ola, Rapido, or deliver for Zomato, Swiggy, or Dunzo, DrivoPay puts money in your pocket instantly.
+**DrivoPay** has evolved from a simple landing page to a **complete financial management platform** for gig economy workers. Version 1.0 includes:
 
-### The Problem We Solve
-
-Traditional payment platforms make drivers wait days or weeks for their earnings. Hidden fees eat into profits. Complicated withdrawal processes create frustration. **DrivoPay changes everything.**
-
-### Our Solution
-
-- **⚡ Instant Payouts**: Get paid the moment you complete a ride or delivery
-- **💰 Zero Fees**: Keep 100% of what you earn - no platform cuts or hidden charges
-- **🎯 Smart Wallet**: Track all your earnings across platforms in one place
-- **🤖 AI Insights**: Get personalized recommendations to maximize your income
-- **🏦 Micro-Loans**: Access instant credit based on your earning patterns
-- **⛽ Fuel Discounts**: Save money at partner fuel stations
-- **🔒 Bank-Grade Security**: Your money is protected with enterprise-level encryption
-
-### Key Features
-
-| Feature | Description |
-|---------|-------------|
-| **Multi-Platform Integration** | Works with Uber, Ola, Rapido, Zomato, Swiggy, Dunzo, and more |
-| **Real-Time Dashboard** | View earnings, rides, and analytics in real-time |
-| **Instant Withdrawals** | Transfer money to your bank account or UPI instantly |
-| **Smart Analytics** | AI-powered insights to help you earn more |
-| **24/7 Support** | Round-the-clock customer support in your language |
-| **Referral Bonuses** | Earn extra by referring other drivers |
-
-### Trusted by 50,000+ Drivers
-
-Join thousands of drivers who have already made the switch to instant payments and increased their earnings by an average of 20%.
+- ✅ **Full Authentication System** (Email + Mobile OTP)
+- ✅ **Real Razorpay Payment Integration** (UPI QR Codes)
+- ✅ **Complete Dashboard** with earnings tracking
+- ✅ **Instant Loans** (₹500 - ₹2,000)
+- ✅ **Expense Tracking** (Fuel, maintenance, tolls)
+- ✅ **Smart Savings & Investments**
+- ✅ **Rewards & Gamification** (₹10 - ₹100 coupons)
+- ✅ **AI-Powered Predictions**
+- ✅ **Multi-Language Support** (6 Indian languages)
+- ✅ **KYC & Document Management**
+- ✅ **Withdrawal System** (IMPS/UPI/NEFT)
 
 ---
 
-## 🛠️ Technical Stack
+## 🎯 For Whom?
 
-This landing page is a high-performance, fully responsive website built with modern web technologies:
+### Target Users
+- 🚗 Ride-sharing drivers (Uber, Ola, Rapido)
+- 🍔 Food delivery partners (Zomato, Swiggy, Dunzo)
+- 🛒 Grocery delivery partners
+- 📦 E-commerce delivery partners
+- 🏍️ Any gig economy worker
 
-- **Framework**: [Next.js](https://nextjs.org/) 15.1.5 (React 19)
-- **Language**: [TypeScript](https://www.typescriptlang.org/) 5.x
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) 3.4
-- **Animations**: [Framer Motion](https://www.framer.com/motion/) 11.15
-- **UI Components**: [Radix UI](https://www.radix-ui.com/) + [shadcn/ui](https://ui.shadcn.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Deployment**: GitHub Pages with automated CI/CD
-- **Build**: Static Site Generation (SSG)
-
-### Key Technical Features
-
-- ✅ **Mobile-First Design**: Responsive hamburger menu and optimized layouts
-- ✅ **SEO Optimized**: Meta tags, Open Graph, and Twitter cards
-- ✅ **Lightning Fast**: Static generation with CDN delivery
-- ✅ **Type-Safe**: Full TypeScript for robust development
-- ✅ **Accessible**: WCAG compliant components
-- ✅ **Performance**: 90+ Lighthouse score
-- ✅ **Modern**: React 19 with latest Next.js features
+### What We Solve
+- ❌ Long payment waiting periods → ✅ Instant payments
+- ❌ High platform fees → ✅ Zero transaction fees
+- ❌ Complex withdrawal process → ✅ One-click withdrawals
+- ❌ No financial insights → ✅ AI-powered predictions
+- ❌ Difficulty tracking expenses → ✅ Automatic categorization
+- ❌ No access to credit → ✅ Instant micro-loans
 
 ---
 
 ## 🚀 Quick Start
 
 ### Prerequisites
+- Node.js 18+ and npm
+- Razorpay account ([Sign up free](https://dashboard.razorpay.com/signup))
 
-- Node.js 20 or higher
-- npm or yarn package manager
-- Git
-
-### Local Development
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/drivopay/drivopay.com.git
-   cd drivopay.com
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Run development server**:
-   ```bash
-   npm run dev
-   ```
-
-4. **Open in browser**:
-   Navigate to [http://localhost:3000](http://localhost:3000)
-
-### Production Build
-
-Create an optimized production build:
+### Installation
 
 ```bash
-npm run build
+# Clone repository
+git clone https://github.com/yourusername/drivopay.git
+cd drivopay
+
+# Install dependencies
+npm install
+
+# Setup environment
+cp .env.example .env.local
+# Add your Razorpay keys to .env.local
+
+# Run development server
+npm run dev
 ```
 
-The static site will be generated in the `out/` directory.
+Open [http://localhost:3000](http://localhost:3000)
 
-### Preview Production Build
+### Environment Setup
 
-Test the production build locally:
-
-```bash
-npm run build && npx serve out
+```env
+# Get these from https://dashboard.razorpay.com/app/keys
+NEXT_PUBLIC_RAZORPAY_KEY_ID=rzp_test_YOUR_KEY_ID
+RAZORPAY_KEY_SECRET=YOUR_SECRET_KEY
+RAZORPAY_WEBHOOK_SECRET=YOUR_WEBHOOK_SECRET
+RAZORPAYX_ACCOUNT_NUMBER=YOUR_ACCOUNT_NUMBER
 ```
+
+📖 **Detailed Setup:** [RAZORPAY_SETUP.md](RAZORPAY_SETUP.md)
 
 ---
 
-## 📁 Project Structure
+## ✨ Complete Feature List
+
+### 💰 Payment & Wallet Features
+- **Real UPI QR Code Generation** (via Razorpay API)
+  - Works with PhonePe, Google Pay, Paytm, BHIM
+  - Dynamic amount-based QR codes
+  - Shareable payment links
+  - Quick amount buttons (₹100, ₹200, ₹500, ₹1000)
+
+- **Instant Withdrawals**
+  - IMPS (instant, 24x7)
+  - UPI (instant, 24x7)
+  - NEFT (2-3 hours)
+  - RTGS (30 minutes, ₹2L+)
+
+- **Wallet Management**
+  - Real-time balance tracking
+  - Transaction history
+  - Credit/Debit categorization
+  - Status tracking (completed/pending)
+
+### 🏦 Financial Services
+
+#### 1. Instant Loans (Micro-lending)
+- **4 Loan Tiers:**
+  - ₹500 (7 days, 0% interest) - Most Popular
+  - ₹1,000 (14 days, 1% interest) - Recommended
+  - ₹1,500 (21 days, 2% interest)
+  - ₹2,000 (30 days, 2.5% interest) - Unlock at 20 rides
+
+- **Features:**
+  - AI-powered credit scoring (780 displayed)
+  - Instant approval in seconds
+  - Auto-repayment from earnings
+  - No paperwork required
+  - Eligibility based on ride history
+
+#### 2. Expense Tracker
+- **Categories:**
+  - Fuel expenses
+  - Maintenance & repairs
+  - Toll charges
+  - Food & beverages
+  - Other expenses
+
+- **Analytics:**
+  - Category-wise breakdown with visual bars
+  - Profit margin calculation
+  - Average daily expense
+  - Export to CSV
+
+#### 3. Smart Savings & Investments
+- **Auto-Save Rules:**
+  - Daily ₹50 auto-save
+  - Round-up savings
+  - Bonus day 10% save
+
+- **Investment Options:**
+  - Digital Gold (from ₹10)
+  - Mutual Funds SIP (from ₹500/month)
+
+- **Emergency Features:**
+  - SOS Fund (instant ₹5,000 access)
+  - Health Insurance (₹299/month, ₹5L coverage)
+  - Accident Insurance (₹149/month, ₹10L coverage)
+
+### 🎮 Gamification & Rewards
+
+**Unlockable Rewards System:**
+- ₹10 Fuel Coupon (5 rides) - Expires 7 days
+- ₹25 Food Voucher (10 rides) - Expires 5 days
+- ₹50 Bonus Cash (20 rides) - Expires 10 days
+- ₹75 Service Discount (30 rides) - Expires 15 days
+- ₹100 Super Reward (50 rides) - Expires 30 days
+
+**Features:**
+- Visual progress tracking
+- Rides remaining indicator
+- Total rewards value display
+- Claim functionality
+- Expiry date tracking
+
+### 🤖 AI-Powered Insights
+
+**Earnings Predictions:**
+- Next week forecast (92% confidence)
+- Tomorrow's earnings estimate
+- Historical trend analysis
+
+**Smart Recommendations:**
+- Peak hours analysis (8-10 AM, 6-9 PM)
+- Expected earnings per time slot
+- Weather impact on demand
+- High-demand area hotspots
+- Event-based forecasting
+- Distance from hotspots
+
+### 🌐 Multi-Language Support
+
+**6 Indian Languages:**
+- English (Default)
+- Hindi (हिंदी)
+- Telugu (తెలుగు)
+- Tamil (தமிழ்)
+- Kannada (ಕನ್ನಡ)
+- Malayalam (മലയാളം)
+
+**Features:**
+- 30+ translated strings
+- Persistent preference
+- Smooth dropdown with flags
+- Native script display
+
+### 👤 User Management
+
+**Authentication:**
+- Email & Password login
+- Mobile OTP authentication
+- Session persistence
+- Protected routes
+- Auto-redirect logic
+
+**Profile & Settings:**
+- Edit personal information
+- Update contact details
+- Profile photo management
+
+**KYC & Documents:**
+- Identity docs (Aadhaar, PAN, DL)
+- Vehicle docs (RC, Insurance)
+- Bank account proof
+- Verification status
+- Document expiry warnings
+
+**Notifications:**
+- Real-time payment alerts
+- Transaction notifications
+- Loan approval status
+- Reward unlock notifications
+
+---
+
+## 🏗️ Technology Stack
+
+### Frontend
+- **Framework:** Next.js 15.1.5 (App Router)
+- **Language:** TypeScript 5.0
+- **React:** 19.0.0
+- **Styling:** Tailwind CSS 3.4
+- **UI Library:** Radix UI + shadcn/ui
+- **Animations:** Framer Motion 11.15
+- **Icons:** Lucide React
+- **QR Codes:** react-qr-code (fallback)
+
+### Backend
+- **Runtime:** Node.js
+- **API Routes:** Next.js 15 API Routes
+- **Payment Gateway:** Razorpay SDK
+- **Authentication:** Context API + localStorage
+- **Crypto:** Node.js crypto module
+
+### Integrations
+- **Payment Gateway:** Razorpay
+  - Payment collection (UPI QR)
+  - Payment verification
+  - Webhooks
+  - Payouts (RazorpayX)
+
+---
+
+## 📂 Project Structure
 
 ```
-drivopay.com/
+drivopay/
 ├── app/
-│   ├── globals.css              # Global styles and CSS variables
-│   ├── layout.tsx               # Root layout with metadata & SEO
-│   ├── page.tsx                 # Main landing page component
-│   └── favicon.ico              # Site favicon
-│
+│   ├── api/razorpay/
+│   │   ├── create-qr/route.ts       # Generate UPI QR
+│   │   ├── create-order/route.ts    # Create payment order
+│   │   ├── verify-payment/route.ts  # Verify payment
+│   │   ├── payout/route.ts          # Process withdrawals
+│   │   └── webhook/route.ts         # Handle webhooks
+│   ├── dashboard/
+│   │   ├── page.tsx                 # Main dashboard
+│   │   ├── wallet/page.tsx          # Wallet
+│   │   ├── earnings/page.tsx        # Earnings
+│   │   ├── expenses/page.tsx        # Expenses
+│   │   ├── savings/page.tsx         # Savings
+│   │   ├── loans/page.tsx           # Loans
+│   │   └── settings/page.tsx        # Settings
+│   ├── layout.tsx                   # Root layout
+│   ├── page.tsx                     # Landing page
+│   └── globals.css                  # Styles
 ├── components/
-│   └── ui/                      # shadcn/ui component library
-│       ├── button.tsx
-│       ├── card.tsx
-│       ├── input.tsx
-│       └── ...                  # 20+ pre-built components
-│
-├── lib/
-│   └── utils.ts                 # Utility functions (cn helper)
-│
-├── hooks/
-│   └── use-mobile.ts            # Mobile device detection hook
-│
-├── public/
-│   └── output-onlinepngtools.png # DrivoPay logo (optimized)
-│
-├── .github/
-│   └── workflows/
-│       └── deploy.yml           # CI/CD pipeline configuration
-│
-├── DEPLOYMENT.md                # Comprehensive deployment guide
-├── LOGO_DESIGN.md              # Logo design documentation
-├── next.config.js              # Next.js configuration (SSG)
-├── tailwind.config.ts          # Tailwind CSS customization
-├── tsconfig.json               # TypeScript configuration
-└── package.json                # Dependencies and scripts
+│   ├── ui/                          # UI components
+│   ├── AuthDialog.tsx               # Auth modal
+│   ├── ReceivePaymentDialog.tsx     # QR payment
+│   ├── WithdrawDialog.tsx           # Withdrawals
+│   ├── LanguageSelector.tsx         # Language switcher
+│   ├── AIPredictions.tsx            # AI insights
+│   ├── RewardsCoupons.tsx           # Rewards
+│   ├── NotificationsDropdown.tsx    # Notifications
+│   └── UserMenu.tsx                 # User dropdown
+├── contexts/
+│   ├── AuthContext.tsx              # Auth state
+│   └── LanguageContext.tsx          # Language state
+├── public/                          # Static assets
+├── .env.example                     # Env template
+├── .env.local                       # Your keys (gitignored)
+├── PROJECT_DOCUMENTATION.md         # Full docs
+├── RAZORPAY_SETUP.md               # Setup guide
+└── README.md                        # This file
 ```
 
 ---
 
-## 🚀 Deployment
+## 🎨 Design System
 
-This project is deployed to **GitHub Pages** using an automated CI/CD pipeline.
-
-### Live URLs
-
-- **Primary**: https://drivopay.com
-- **WWW**: https://www.drivopay.com (redirects to primary)
-- **GitHub Pages**: https://drivopay.github.io/drivopay.com (redirects to primary)
-
-### Deployment Triggers
-
-The site automatically deploys when:
-
-1. ✅ **Direct push** to `main` branch
-2. ✅ **Pull Request merge** to `main` branch
-3. ✅ **Manual trigger** via GitHub Actions UI
-
-### Quick Deployment
-
-```bash
-# Make changes to the code
-git add .
-git commit -m "Your commit message"
-git push origin main
-
-# GitHub Actions automatically:
-# 1. Builds the Next.js application
-# 2. Generates static files
-# 3. Deploys to gh-pages branch
-# 4. Updates live site
+### Colors
+```css
+Primary: Emerald (#10B981) → Teal (#14B8A6)
+Accent: Purple → Pink, Red → Orange, Blue → Indigo
+Semantic: Success (Green), Error (Red), Warning (Yellow)
 ```
-
-### Comprehensive Deployment Guide
-
-For detailed deployment instructions, troubleshooting, and configuration, see [DEPLOYMENT.md](DEPLOYMENT.md).
-
----
-
-## 🎨 Design & Branding
-
-### Color Palette
-
-**Emerald & Teal Theme** - Money-focused, trustworthy, modern:
-
-- **Primary Emerald**: `#10B981` - Money, growth, prosperity
-- **Primary Teal**: `#14B8A6` - Trust, professionalism, reliability
-- **Accent Cyan**: `#06B6D4` - Technology, clarity, instant transactions
-
-### Logo
-
-The DrivoPay logo combines multiple symbolic elements:
-
-- **Circular Payment Symbol**: Represents coin/currency
-- **Stylized "D" Shape**: Brand initial with forward motion
-- **Lightning Bolt**: Instant payments (hero element)
-- **Motion Lines**: Speed and driving motion
-- **Gradient**: Modern fintech aesthetic
-
-For detailed logo design rationale, see [LOGO_DESIGN.md](LOGO_DESIGN.md).
 
 ### Typography
+- **Font:** Inter (Google Fonts)
+- **Weights:** 400, 500, 600, 700, 800
 
-- **Font Family**: System UI fonts (sans-serif)
-- **Weights**: 400 (regular), 600 (semibold), 700 (bold), 800 (extrabold)
-- **Responsive Sizing**: Mobile-first with breakpoints at md, lg, xl
-
----
-
-## 📝 Available Scripts
-
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start development server (port 3000) |
-| `npm run build` | Build production-ready static site |
-| `npm start` | Start Next.js production server |
-| `npm run lint` | Run ESLint to check code quality |
+### Components
+- Fully responsive
+- Smooth Framer Motion animations
+- Accessibility compliant
 
 ---
 
-## 🎯 Key Features Implemented
+## 🔐 Security Features
 
-### 🖥️ Landing Page Sections
-
-1. **Hero Section**
-   - Attention-grabbing headline
-   - Primary and secondary CTAs
-   - Trust indicators (50,000+ drivers)
-   - Animated background gradients
-
-2. **Platform Integrations**
-   - Logos of partner platforms
-   - Visual credibility boost
-
-3. **Features Grid**
-   - 6 core features with icons
-   - Bento-style card layout
-   - Hover animations
-
-4. **Stats Section**
-   - Animated counters
-   - Social proof metrics
-   - Gradient background
-
-5. **Testimonials**
-   - Real driver reviews
-   - Star ratings
-   - Platform badges
-
-6. **Final CTA**
-   - Compelling call-to-action
-   - Email signup form
-   - Social proof reinforcement
-
-### 📱 Mobile Responsiveness
-
-- **Hamburger Menu**: Smooth slide-in mobile navigation
-- **Responsive Images**: Logo scales appropriately on mobile
-- **Touch-Friendly**: All buttons and links optimized for touch
-- **Fluid Typography**: Text scales based on viewport
-- **Adaptive Layout**: Grid columns collapse on mobile
-
-### ⚡ Performance Optimizations
-
-- **Static Site Generation**: Pre-rendered HTML for instant loading
-- **Image Optimization**: Next.js Image component with priority loading
-- **Code Splitting**: Automatic by Next.js
-- **CSS Optimization**: Tailwind CSS purged and minified
-- **Lazy Loading**: Components load as needed
-- **CDN Delivery**: Served via GitHub Pages CDN
+- ✅ Server-side payment processing only
+- ✅ Payment signature verification (HMAC SHA256)
+- ✅ Webhook signature validation
+- ✅ Environment variable protection
+- ✅ No sensitive data in frontend
+- ✅ Protected API routes
+- ✅ HTTPS enforced (production)
 
 ---
 
-## 🎨 Customization Guide
+## 🧪 Testing Guide
 
-### Update Colors
-
-Edit `app/globals.css` to change the color scheme:
-
-```css
-:root {
-  --primary: 160 84% 39%;      /* Emerald-600 */
-  --primary-foreground: 0 0% 100%;
-  /* ... other variables */
-}
-```
-
-### Modify Content
-
-Edit `app/page.tsx` to update:
-- Hero section headline and copy
-- Feature descriptions
-- Testimonials
-- CTA text
-- Partner logos
-
-### Add New Components
-
-Use shadcn/ui to add more components:
-
+### Test Mode (No Real Money)
 ```bash
-npx shadcn@latest add <component-name>
+# Use Razorpay test keys (rzp_test_xxx)
+# All transactions are simulated
 ```
 
-Available components: button, card, input, dialog, dropdown-menu, and 20+ more.
+### Test UPI IDs (Razorpay)
+- Success: `success@razorpay`
+- Failure: `failure@razorpay`
 
-### Update Metadata
+### Features to Test
+- [ ] Signup with email/phone
+- [ ] Login with mobile OTP
+- [ ] Generate payment QR code
+- [ ] View dashboard statistics
+- [ ] Apply for instant loan
+- [ ] Track expenses by category
+- [ ] Unlock rewards (progress)
+- [ ] Switch languages
+- [ ] View AI predictions
+- [ ] KYC document upload
+- [ ] Withdraw funds
 
-Edit SEO and social sharing info in `app/layout.tsx`:
+---
 
-```tsx
-export const metadata: Metadata = {
-  title: "Your Title",
-  description: "Your description",
-  // ... more metadata
-}
+## 📊 API Endpoints
+
+### Payment APIs
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/razorpay/create-qr` | POST | Generate UPI QR code |
+| `/api/razorpay/create-order` | POST | Create payment order |
+| `/api/razorpay/verify-payment` | POST | Verify payment signature |
+| `/api/razorpay/payout` | POST | Process withdrawal |
+| `/api/razorpay/webhook` | POST | Handle payment webhooks |
+
+---
+
+## 🚢 Deployment
+
+### Vercel (Recommended)
+```bash
+# Deploy to Vercel
+vercel
+
+# Add environment variables in dashboard
+```
+
+### Environment Variables
+```env
+NEXT_PUBLIC_RAZORPAY_KEY_ID=rzp_live_xxx
+RAZORPAY_KEY_SECRET=xxx
+RAZORPAY_WEBHOOK_SECRET=xxx
+RAZORPAYX_ACCOUNT_NUMBER=xxx
 ```
 
 ---
 
-## 📖 Documentation
+## 📚 Documentation
 
-- **[DEPLOYMENT.md](DEPLOYMENT.md)**: Complete deployment guide with troubleshooting
-- **[LOGO_DESIGN.md](LOGO_DESIGN.md)**: Logo design rationale and usage guidelines
-- **[Next.js Docs](https://nextjs.org/docs)**: Framework documentation
-- **[Tailwind CSS Docs](https://tailwindcss.com/docs)**: Styling documentation
-- **[shadcn/ui Docs](https://ui.shadcn.com)**: Component library documentation
+- **[PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md)** - Complete technical documentation
+- **[RAZORPAY_SETUP.md](RAZORPAY_SETUP.md)** - Payment gateway setup guide
+- **Inline Comments** - Code documentation
 
 ---
 
-## 🔧 Configuration Files
+## 🎯 Roadmap
 
-| File | Purpose |
-|------|---------|
-| `next.config.js` | Next.js configuration (static export, images) |
-| `tailwind.config.ts` | Tailwind CSS theme customization |
-| `tsconfig.json` | TypeScript compiler options |
-| `eslint.config.mjs` | ESLint rules and plugins |
-| `.github/workflows/deploy.yml` | CI/CD pipeline configuration |
+### Completed ✅
+- Full authentication system
+- Razorpay payment integration
+- Dashboard with real-time stats
+- Instant loans feature
+- Expense tracking
+- Smart savings
+- Rewards & gamification
+- AI predictions
+- Multi-language support
+- KYC management
+
+### Coming Soon 🚀
+- Real bank integration
+- Mobile app (React Native)
+- Push notifications
+- Referral system
+- Advanced analytics
+- Biometric auth
+- Offline support (PWA)
+- Chatbot support
+
+---
+
+## 📊 Project Statistics
+
+- **Version:** 1.0.0
+- **Total Files:** 50+
+- **Lines of Code:** 15,000+
+- **Components:** 25+
+- **API Endpoints:** 5
+- **Languages:** 6
+- **Features:** 12 major features
+- **Dependencies:** 40+ packages
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions! Here's how you can help:
+Contributions welcome! Please:
 
-1. **Fork the repository**
-2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
-3. **Commit your changes**: `git commit -m 'Add amazing feature'`
-4. **Push to branch**: `git push origin feature/amazing-feature`
-5. **Open a Pull Request**
-
-### Contribution Guidelines
-
-- Follow the existing code style
-- Write clear commit messages
-- Test your changes locally before submitting
-- Update documentation if needed
-- Ensure builds pass before submitting PR
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Open Pull Request
 
 ---
 
-## 🐛 Bug Reports & Feature Requests
+## 📧 Support
 
-Found a bug or have a feature idea? [Open an issue](https://github.com/drivopay/drivopay.com/issues) on GitHub.
-
-Please include:
-- **Bug Reports**: Steps to reproduce, expected vs actual behavior, screenshots
-- **Feature Requests**: Clear description, use cases, mockups if applicable
+- **Email:** support@drivopay.com
+- **GitHub Issues:** [Report a bug](https://github.com/yourusername/drivopay/issues)
+- **Documentation:** [Full Docs](PROJECT_DOCUMENTATION.md)
 
 ---
 
-## 📧 Support & Contact
+## 📝 License
 
-- **Website**: [drivopay.com](https://drivopay.com)
-- **Email**: support@drivopay.com
-- **GitHub**: [github.com/drivopay/drivopay.com](https://github.com/drivopay/drivopay.com)
-- **Issues**: [Report a problem](https://github.com/drivopay/drivopay.com/issues)
+Copyright © 2026 DrivoPay. All rights reserved.
 
 ---
 
-## 📄 License
+## 🙏 Acknowledgments
 
-This project is proprietary and confidential. All rights reserved by DrivoPay.
-
----
-
-## 🌟 Acknowledgments
-
-Built with love using:
-
-- [**Next.js**](https://nextjs.org/) - The React Framework for Production
-- [**React**](https://react.dev/) - JavaScript library for building user interfaces
-- [**Tailwind CSS**](https://tailwindcss.com/) - Utility-first CSS framework
-- [**Framer Motion**](https://www.framer.com/motion/) - Animation library for React
-- [**shadcn/ui**](https://ui.shadcn.com/) - Re-usable component library
-- [**Radix UI**](https://www.radix-ui.com/) - Unstyled, accessible components
-- [**Lucide**](https://lucide.dev/) - Beautiful & consistent icon pack
-- [**TypeScript**](https://www.typescriptlang.org/) - Typed JavaScript
-
-Special thanks to the open-source community for making this possible.
-
----
-
-## 📊 Project Stats
-
-- **Version**: 1.0.0
-- **Last Updated**: January 2026
-- **Dependencies**: 40+ npm packages
-- **Components**: 20+ UI components
-- **Lines of Code**: 1,500+
-- **Lighthouse Score**: 90+
+- [Next.js](https://nextjs.org/) - React Framework
+- [Razorpay](https://razorpay.com/) - Payment Gateway
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Framer Motion](https://www.framer.com/motion/) - Animations
+- [shadcn/ui](https://ui.shadcn.com/) - UI Components
+- [Lucide](https://lucide.dev/) - Icons
 
 ---
 
 <div align="center">
 
-**Made with ❤️ for drivers by DrivoPay**
+**Made with ❤️ for Gig Economy Workers**
 
-[⬆ Back to top](#drivopay---instant-payments-platform-for-drivers)
+⭐ Star this repo if you find it helpful!
+
+[⬆ Back to Top](#-drivopay---complete-payment-platform-for-gig-economy-workers)
 
 </div>
