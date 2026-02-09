@@ -11,8 +11,6 @@ import {
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { UserMenu } from '@/components/UserMenu';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import Image from 'next/image';
 
 interface LoanOffer {
@@ -30,7 +28,6 @@ export default function LoansPage() {
   const { user, isLoading } = useAuth();
   const router = useRouter();
   const [selectedLoan, setSelectedLoan] = useState<LoanOffer | null>(null);
-  const [loanAmount, setLoanAmount] = useState('');
   const [applying, setApplying] = useState(false);
   const [success, setSuccess] = useState(false);
 

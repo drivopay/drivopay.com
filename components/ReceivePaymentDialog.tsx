@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -22,7 +22,7 @@ export function ReceivePaymentDialog({ open, onOpenChange }: ReceivePaymentDialo
   const [amount, setAmount] = useState('');
   const [copied, setCopied] = useState(false);
   const [paymentReceived, setPaymentReceived] = useState(false);
-  const [qrData, setQrData] = useState<any>(null);
+  const [qrData, setQrData] = useState<{ qrCodeId: string; imageUrl: string; shortUrl: string; qrString: string } | null>(null);
   const [loadingQR, setLoadingQR] = useState(false);
   const [qrError, setQrError] = useState('');
 
@@ -33,14 +33,7 @@ export function ReceivePaymentDialog({ open, onOpenChange }: ReceivePaymentDialo
 
   const quickAmounts = [100, 200, 500, 1000];
 
-  // Generate Razorpay QR code when amount is set
-  useEffect(() => {
-    if (open && amount && parseFloat(amount) > 0) {
-      generateQRCode();
-    }
-  }, [amount, open]);
-
-  const generateQRCode = async () => {
+  const generateQRCode = useCallback(async () => {
     setLoadingQR(true);
     setQrError('');
     try {
@@ -60,13 +53,20 @@ export function ReceivePaymentDialog({ open, onOpenChange }: ReceivePaymentDialo
       } else {
         setQrError(data.error || 'Failed to generate QR code');
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('QR generation error:', error);
       setQrError('Failed to generate QR code. Please try again.');
     } finally {
       setLoadingQR(false);
     }
-  };
+  }, [amount, user?.name]);
+
+  // Generate Razorpay QR code when amount is set
+  useEffect(() => {
+    if (open && amount && parseFloat(amount) > 0) {
+      generateQRCode();
+    }
+  }, [amount, open, generateQRCode]);
 
   const handleCopyUPI = () => {
     navigator.clipboard.writeText(upiId);

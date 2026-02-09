@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import {
-  TrendingUp, TrendingDown, Calendar, ChevronLeft,
+  TrendingUp, ChevronLeft,
   DollarSign, Zap, Clock, MapPin, Star, Award
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';

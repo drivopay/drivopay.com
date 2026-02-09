@@ -4,15 +4,13 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import {
-  ChevronLeft, Plus, Fuel, Wrench, Receipt, Coffee, Phone,
-  DollarSign, TrendingDown, Calendar, Filter, Download,
-  PieChart, BarChart3, FileText
+  ChevronLeft, Plus, Fuel, Wrench, Receipt, Coffee,
+  DollarSign, TrendingDown, Calendar, Download,
+  FileText
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { UserMenu } from '@/components/UserMenu';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import Image from 'next/image';
 
 interface Expense {
@@ -28,8 +26,6 @@ export default function ExpensesPage() {
   const { user, isLoading } = useAuth();
   const router = useRouter();
   const [expenses, setExpenses] = useState<Expense[]>([]);
-  const [addExpenseOpen, setAddExpenseOpen] = useState(false);
-  const [selectedPeriod, setSelectedPeriod] = useState<'week' | 'month' | 'year'>('month');
 
   useEffect(() => {
     if (!isLoading && !user) {
@@ -152,7 +148,7 @@ export default function ExpensesPage() {
               <p className="text-gray-600">Track and manage your business expenses</p>
             </div>
             <Button
-              onClick={() => setAddExpenseOpen(true)}
+              onClick={() => alert('Add expense feature coming soon!')}
               className="bg-emerald-600 hover:bg-emerald-700 h-14 px-6"
             >
               <Plus className="w-5 h-5 mr-2" />

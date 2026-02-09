@@ -5,9 +5,9 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import {
   ArrowUpRight, ArrowDownLeft, TrendingUp, Wallet,
-  CreditCard, Plus, Download, Settings, Bell,
-  Clock, Calendar, DollarSign, Zap, Gift, BarChart3,
-  ChevronRight, Check, X as CloseIcon, Receipt, FileText,
+  CreditCard, Download,
+  Clock, DollarSign, Zap, Gift, BarChart3,
+  ChevronRight, Check, Receipt,
   PiggyBank, Shield, ArrowDownToLine
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
@@ -135,7 +135,7 @@ export default function DashboardPage() {
           <h1 className="text-4xl font-bold text-gray-900 mb-2">
             {t('welcome')}, {user.name.split(' ')[0]}! 👋
           </h1>
-          <p className="text-gray-600">Here's what's happening with your earnings {t('today').toLowerCase()}.</p>
+          <p className="text-gray-600">Here&apos;s what&apos;s happening with your earnings {t('today').toLowerCase()}.</p>
         </motion.div>
 
         {/* Stats Grid */}
@@ -382,13 +382,9 @@ export default function DashboardPage() {
                         : 'bg-red-100'
                     }`}>
                       {transaction.type === 'credit' ? (
-                        <ArrowDownLeft className={`w-5 h-5 ${
-                          transaction.type === 'credit' ? 'text-green-600' : 'text-red-600'
-                        }`} />
+                        <ArrowDownLeft className="w-5 h-5 text-green-600" />
                       ) : (
-                        <ArrowUpRight className={`w-5 h-5 ${
-                          transaction.type === 'credit' ? 'text-green-600' : 'text-red-600'
-                        }`} />
+                        <ArrowUpRight className="w-5 h-5 text-red-600" />
                       )}
                     </div>
                     <div>
