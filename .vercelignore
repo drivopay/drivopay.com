@@ -1,0 +1,4 @@
+# Documentation files - not for public access
+docs-esp/
+*.md
+!README.md

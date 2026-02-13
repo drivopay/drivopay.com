@@ -9,6 +9,9 @@ Allow: /
 # Disallow: /api/
 # Disallow: /admin/
 
+# Block documentation directory (internal use only)
+Disallow: /docs-esp/
+
 # Sitemap location
 Sitemap: https://drivopay.com/sitemap.xml
 

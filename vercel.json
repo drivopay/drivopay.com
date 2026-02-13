@@ -1,0 +1,11 @@
+{
+  "github": {
+    "silent": true
+  },
+  "routes": [
+    {
+      "src": "/docs-esp/(.*)",
+      "status": 404
+    }
+  ]
+}
