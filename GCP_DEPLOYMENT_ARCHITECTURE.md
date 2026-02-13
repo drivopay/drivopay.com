@@ -1,25 +1,90 @@
 # DrivoPay - GCP Deployment Architecture
 
-**Version:** 1.0
-**Date:** 2026-02-13
+**Version:** 2.0
+**Date:** 2026-02-13 (Updated)
 **Platform:** Google Cloud Platform (GCP) with Google Kubernetes Engine (GKE)
+**Repository:** drivopay-backend (Monorepo)
 
 ---
 
 ## Table of Contents
 
-1. [Architecture Overview](#architecture-overview)
-2. [GCP Services Required](#gcp-services-required)
-3. [Microservices Architecture](#microservices-architecture)
-4. [Authentication Flow](#authentication-flow)
-5. [API Routes & Endpoints](#api-routes--endpoints)
-6. [Database Architecture](#database-architecture)
-7. [Infrastructure Components](#infrastructure-components)
-8. [Deployment Strategy](#deployment-strategy)
-9. [Scaling & High Availability](#scaling--high-availability)
-10. [Security Architecture](#security-architecture)
-11. [Monitoring & Observability](#monitoring--observability)
-12. [Cost Estimation](#cost-estimation)
+1. [Repository Structure](#repository-structure)
+2. [Architecture Overview](#architecture-overview)
+3. [GCP Services Required](#gcp-services-required)
+4. [Microservices Architecture](#microservices-architecture)
+5. [Authentication Flow](#authentication-flow)
+6. [API Routes & Endpoints](#api-routes--endpoints)
+7. [Database Architecture](#database-architecture)
+8. [Infrastructure Components](#infrastructure-components)
+9. [Deployment Strategy](#deployment-strategy)
+10. [Scaling & High Availability](#scaling--high-availability)
+11. [Security Architecture](#security-architecture)
+12. [Monitoring & Observability](#monitoring--observability)
+13. [Cost Estimation](#cost-estimation)
+
+---
+
+## Repository Structure
+
+### Monorepo Organization
+
+**Primary Repository:** `drivopay-backend` (Turborepo + pnpm workspaces)
+
+**Location:** `/Users/puvendhan/Documents/repos/new/drivopay-backend`
+
+```
+drivopay-backend/                 # Root monorepo
+├── packages/                     # Shared packages
+│   ├── common/                   # Shared utilities, helpers, constants
+│   ├── database/                 # Prisma schema, migrations, DB client
+│   ├── events/                   # Event definitions for Pub/Sub
+│   └── grpc-protos/              # gRPC protocol definitions
+│
+├── services/                     # Microservices
+│   ├── api-gateway/              # Port 3000 - NestJS
+│   ├── auth-service/             # Port 4001 - NestJS
+│   ├── wallet-service/           # Port 4002 - NestJS
+│   ├── payment-service/          # Port 4003 - NestJS
+│   ├── transaction-service/      # Port 4004 - NestJS
+│   ├── platform-integration-service/ # Port 4005 - NestJS
+│   ├── notification-service/     # Port 4006 - NestJS
+│   ├── audit-service/            # Port 4007 - NestJS
+│   ├── core-api/                 # Port 5000 - Go (Legacy/Alternative)
+│   └── web-dashboard/            # Port 4008 - Next.js (Admin Panel)
+│
+├── deploy/                       # Deployment configurations
+│   └── docker/
+│       ├── docker-compose.minimal.yml  # Lightweight local dev
+│       └── docker-compose.dev.yml      # Full local dev
+│
+├── k8s/                          # Kubernetes manifests (to be created)
+│   ├── api-gateway/
+│   ├── auth-service/
+│   └── ...
+│
+├── migrations/                   # Database migrations
+├── package.json                  # Root package.json
+├── pnpm-workspace.yaml           # Workspace configuration
+├── turbo.json                    # Turborepo configuration
+└── README.md
+```
+
+### Additional Repositories
+
+| Repository | Purpose | Location |
+|------------|---------|----------|
+| **drivopay-webapp** | Driver-facing web app (Next.js 16) | `/Users/puvendhan/Documents/repos/new/drivopay-webapp` |
+| **drivopay-mobile** | Mobile app (React Native) | `/Users/puvendhan/Documents/repos/new/drivopay-mobile` |
+| **drivopay-infra** | Infrastructure as Code, Docker configs | `/Users/puvendhan/Documents/repos/new/drivopay-infra` |
+| **drivopay.com** | Marketing website | `/Users/puvendhan/Documents/repos/new/drivopay.com` |
+
+### Service Count
+
+- **Core Services:** 8 NestJS microservices
+- **Additional Services:** 1 Go service (core-api), 1 Next.js admin panel (web-dashboard)
+- **Total Services:** 10 services
+- **Shared Packages:** 4 packages
 
 ---
 
@@ -30,8 +95,9 @@
 ```mermaid
 graph TB
     subgraph "Client Layer"
-        WEB[Web App<br/>Next.js]
-        MOBILE[Mobile App<br/>React Native]
+        WEB[Driver Web App<br/>Next.js - drivopay-webapp]
+        MOBILE[Mobile App<br/>React Native - drivopay-mobile]
+        ADMIN[Admin Dashboard<br/>Next.js - web-dashboard]
     end
 
     subgraph "CDN & Load Balancing"
@@ -79,6 +145,7 @@ graph TB
 
     WEB --> CDN
     MOBILE --> GLB
+    ADMIN --> GLB
     CDN --> GLB
     GLB --> APIGW
 
@@ -178,6 +245,11 @@ graph LR
         AUDIT[Audit Service<br/>Port: 4007<br/>Logging, Compliance]
     end
 
+    subgraph "Admin & Legacy"
+        DASHBOARD[Web Dashboard<br/>Port: 4008<br/>Next.js Admin Panel]
+        COREAPI[Core API<br/>Port: 5000<br/>Go - Legacy]
+    end
+
     APIGW --> AUTH
     APIGW --> WALLET
     APIGW --> PAYMENT
@@ -185,6 +257,9 @@ graph LR
     APIGW --> PLATFORM
     APIGW --> NOTIF
     APIGW --> AUDIT
+    APIGW --> COREAPI
+
+    DASHBOARD --> APIGW
 
     WALLET --> TRANS
     PAYMENT --> TRANS
@@ -299,6 +374,32 @@ graph LR
 - **Resources:** 0.3 CPU, 256Mi RAM per pod
 - **Replicas:** 2 (HPA: 2-6)
 - **Database Schema:** `platforms`
+
+#### 9. Web Dashboard (Port: 4008)
+- **Technology:** Next.js 16, React 19, TypeScript
+- **Responsibilities:**
+  - Admin panel for operations team
+  - User management dashboard
+  - Transaction monitoring
+  - Analytics and reporting
+  - KYC approval workflow
+  - System configuration
+  - Real-time metrics display
+- **Resources:** 0.4 CPU, 512Mi RAM per pod
+- **Replicas:** 2 (HPA: 2-4)
+- **Database:** Read-only access via API Gateway
+- **Note:** Internal admin tool, requires IAP authentication
+
+#### 10. Core API (Port: 5000) - Legacy
+- **Technology:** Go, Gin Framework
+- **Status:** Legacy/Alternative implementation
+- **Responsibilities:**
+  - Alternative API implementation (Go-based)
+  - High-performance endpoints
+  - May be deprecated in favor of NestJS services
+- **Resources:** 0.3 CPU, 256Mi RAM per pod
+- **Replicas:** 2 (Optional deployment)
+- **Note:** Consider migration to NestJS microservices or deprecation
 
 ---
 
@@ -1664,7 +1765,7 @@ graph TB
 | Service | Configuration | Quantity | Unit Cost | Monthly Cost |
 |---------|---------------|----------|-----------|--------------|
 | **GKE Cluster** | Management fee | 1 cluster | $74.40 | $74.40 |
-| **GKE Nodes** | e2-standard-4 (4 vCPU, 16GB) | 3-6 nodes avg | ~$120/node | $600 |
+| **GKE Nodes** | e2-standard-4 (4 vCPU, 16GB)<br/>*Hosting 10 services* | 3-6 nodes avg | ~$120/node | $600 |
 | **Cloud SQL** | db-custom-4-16384 (4 vCPU, 16GB) | 1 primary | $283 | $283 |
 | **Cloud SQL Replicas** | db-custom-2-8192 (2 vCPU, 8GB) | 2 replicas | $141 each | $282 |
 | **Memorystore Redis** | Standard 5GB HA | 1 instance | $145 | $145 |
@@ -1789,26 +1890,40 @@ graph TB
 
 ## Summary
 
+### Architecture Overview
+
+**Repository:** drivopay-backend (Monorepo with Turborepo + pnpm workspaces)
+
+**Services:** 10 microservices total
+- 8 Core NestJS services (API Gateway, Auth, Wallet, Payment, Transaction, Platform Integration, Notification, Audit)
+- 1 Admin dashboard (Next.js - Web Dashboard)
+- 1 Legacy service (Go - Core API, optional)
+
+**Infrastructure:** Full GCP stack with GKE, Cloud SQL, Memorystore Redis, Pub/Sub
+
 This deployment architecture provides:
 
-✅ **Scalability:** Auto-scaling at pod and node levels
-✅ **High Availability:** Multi-zone deployment, HA databases
-✅ **Security:** Private cluster, Cloud Armor, encryption
-✅ **Observability:** Comprehensive monitoring and logging
-✅ **Cost-Effective:** Optimized resource allocation
-✅ **Production-Ready:** Battle-tested GCP services
+✅ **Scalability:** Auto-scaling at pod and node levels (3-10 nodes)
+✅ **High Availability:** Multi-zone deployment, HA databases (99.95% SLA)
+✅ **Security:** Private cluster, Cloud Armor, encryption at rest & transit
+✅ **Observability:** Comprehensive monitoring, logging, and tracing
+✅ **Cost-Effective:** ~$1,400-$1,805/month optimized
+✅ **Production-Ready:** Battle-tested GCP managed services
+✅ **Monorepo Benefits:** Single CI/CD, shared packages, easier refactoring
 
 **Next Steps:**
 1. Set up GCP project and enable required APIs
-2. Create infrastructure using Terraform (IaC)
-3. Build and push Docker images
-4. Deploy applications to GKE
-5. Configure monitoring and alerting
-6. Perform load testing
-7. Go live!
+2. Create Kubernetes manifests in `drivopay-backend/k8s/`
+3. Create infrastructure using Terraform (IaC)
+4. Build and push Docker images to Artifact Registry
+5. Deploy applications to GKE
+6. Configure monitoring and alerting
+7. Perform load testing
+8. Go live!
 
 ---
 
-**Document Version:** 1.0
-**Last Updated:** 2026-02-13
+**Document Version:** 2.0
+**Last Updated:** 2026-02-13 (Aligned with actual repository structure)
+**Repository:** drivopay-backend
 **Maintained By:** DrivoPay Infrastructure Team
